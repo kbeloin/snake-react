@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 body {
@@ -7,4 +8,15 @@ body {
   min-height: 100vh;
   display: grid;
   font-family: "Work Sans", sans-serif;
+}
+
+.App-body {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  margin: 0 auto;
+  padding: 2em;
+  width: 100%;
+  max-width: min(800px, 100vw);
+  justify-content: center;
 }

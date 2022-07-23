@@ -1,3 +1,15 @@
 .header {
-  margin-left: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+  flex: 1 1 100%;
+}
+
+.title {
+  width: 100%;
 }

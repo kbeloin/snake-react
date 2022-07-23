@@ -1,0 +1,8 @@
+.food {
+  border: 1px solid black;
+  width: var(--snake-segment-width);
+  height: var(--snake-segment-width);
+  grid-row-start: var(--y);
+  grid-column-start: var(--x);
+  border-radius: 50% 50%;
+}

@@ -3,8 +3,7 @@ import styles from "./Board.module.css";
 import { useContext, useState } from "react";
 
 export default function Setup() {
-  const { setGame, setGameState, gameState, newGame, time, i } =
-    useContext(GameContext);
+  const { setGameState, gameState, newGame, time, i } = useContext(GameContext);
   const [settings, setSettings] = useState({
     cols: 15,
     rows: 15,
@@ -22,11 +21,7 @@ export default function Setup() {
 
   const startGame = (e) => {
     e.preventDefault();
-    setGame((state) => ({
-      ...state,
-      cols: settings.cols,
-      rows: settings.rows,
-    }));
+
     setGameState((state) => ({
       ...state,
       gameStarted: true,
@@ -38,12 +33,7 @@ export default function Setup() {
 
   const resetGame = (e) => {
     e.preventDefault();
-    setGame((state) => ({
-      ...state,
-      cols: settings.cols,
-      rows: settings.rows,
-      bees: settings.bees,
-    }));
+
     setGameState((state) => ({
       ...state,
       gameStarted: false,

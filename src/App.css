@@ -3,11 +3,17 @@
   min-height: 100vh;
 }
 
+#root {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
   display: grid;
   font-family: "Work Sans", sans-serif;
+  overflow-y: hidden;
 }
 
 .App-body {
@@ -15,7 +21,6 @@ body {
   flex-direction: row;
   gap: 2em;
   margin: 0 auto;
-  padding: 2em;
   width: 100%;
   max-width: min(800px, 100vw);
   justify-content: center;

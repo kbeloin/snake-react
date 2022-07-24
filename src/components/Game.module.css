@@ -29,6 +29,12 @@
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .game {
+    transform: translateY(var(--yOffset)) scale(var(--scale));
+  }
+}
+
 @keyframes slide-down {
   0% {
     transform: translateX(-100%);

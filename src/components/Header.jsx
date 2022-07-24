@@ -16,8 +16,13 @@ export default function Header() {
             : ""
         }`}</h2>
       )}
+      {!gameState.gameStarted && <h2 className={styles.title}>Setup</h2>}
 
-      <header>
+      <header
+        style={{
+          marginLeft: "auto",
+        }}
+      >
         <a href="https://github.com/kbeloin/snake-react">
           <img
             alt="Github logo."

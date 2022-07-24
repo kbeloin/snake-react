@@ -4,9 +4,6 @@ import { useState, useEffect, useContext, useCallback } from "react";
 import { BoardContext } from "./Board";
 import { GameContext } from "./Game";
 
-const INNITAL_VELOCITY = 20;
-const CELL_SIZE = 10;
-const BOARD_WIDTH = 600;
 const ROUNDED_SEGMENT = {
   top: "50% 50% 0 0",
   right: "0 50% 50% 0",
@@ -15,11 +12,11 @@ const ROUNDED_SEGMENT = {
 };
 
 export default function Snake() {
-  const { gameState, setGameState } = useContext(GameContext);
+  const { gameState, setGameState, INITIAL_VELOCITY, CELL_SIZE, BOARD_WIDTH } =
+    useContext(GameContext);
   const { position, setPosition, snake, setSnake, food, setFood } =
     useContext(BoardContext);
   const { up, down, left, right } = useControls();
-  const [velocity, setVelocity] = useState(INNITAL_VELOCITY);
   const [direction, setDirection] = useState({
     x: -1,
     y: 0,
@@ -103,6 +100,7 @@ export default function Snake() {
       newSnake.pop();
       if (food.collected) {
         newSnake.push({ x: newX, y: newY });
+        // TODO: move food outside of snake
         setFood({
           x: Math.max(Math.floor((Math.random() * BOARD_WIDTH) / CELL_SIZE), 1),
           y: Math.max(Math.floor((Math.random() * BOARD_WIDTH) / CELL_SIZE), 1),
@@ -117,7 +115,17 @@ export default function Snake() {
       });
       setSnake(newSnake);
     }
-  }, [position, direction, snake, food, setFood, setPosition, setSnake]);
+  }, [
+    position,
+    direction,
+    snake,
+    food,
+    setFood,
+    setPosition,
+    setSnake,
+    BOARD_WIDTH,
+    CELL_SIZE,
+  ]);
 
   useEffect(() => {
     let timeout = setTimeout(() => {
@@ -131,19 +139,19 @@ export default function Snake() {
           gameStarted: true,
         }));
       }
-    }, 1000 / 20);
+    }, 1000 / INITIAL_VELOCITY);
 
     return () => {
       clearTimeout(timeout);
     };
   }, [
-    velocity,
     position,
     direction,
     updatePosition,
     checkCollision,
     snake,
     setGameState,
+    INITIAL_VELOCITY,
   ]);
 
   useEffect(() => {
@@ -160,10 +168,9 @@ export default function Snake() {
 
   useEffect(() => {
     if (gameState.gameStarted) {
-      setVelocity(INNITAL_VELOCITY);
       setDirection({ x: -1, y: 0 });
     }
-  }, [gameState]);
+  }, [gameState, INITIAL_VELOCITY]);
 
   return (
     <>

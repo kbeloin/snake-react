@@ -2,6 +2,7 @@
   border: 1px solid black;
   width: var(--snake-segment-width);
   height: var(--snake-segment-width);
+  background-color: black;
   grid-row-start: var(--y);
   grid-column-start: var(--x);
   border-radius: var(--round);

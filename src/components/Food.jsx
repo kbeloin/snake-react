@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import styles from "./Food.module.css";
 
 export default function Food() {
-  const { position, food, setFood } = useContext(BoardContext);
+  const { position, food, setFood, incrememtScore } = useContext(BoardContext);
 
   useEffect(() => {
     if (position.x === food.x && position.y === food.y && !food.collected) {
@@ -11,8 +11,9 @@ export default function Food() {
         ...state,
         collected: true,
       }));
+      incrememtScore();
     }
-  }, [position, food, setFood]);
+  }, [position, food, setFood, incrememtScore]);
 
   return (
     <div

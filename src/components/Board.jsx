@@ -1,13 +1,22 @@
 import styles from "./Board.module.css";
 import Snake from "./Snake";
 import Food from "./Food";
-import { createContext, useState, useRef, useContext, useEffect } from "react";
+import {
+  createContext,
+  useState,
+  useRef,
+  useContext,
+  useEffect,
+  useCallback,
+} from "react";
 import { GameContext } from "./Game";
+import Dialog from "./Dialog";
 
 export const BoardContext = createContext({});
 
 export const Board = () => {
-  const { INITIAL_SNAKE_LENGTH, gameState } = useContext(GameContext);
+  const { INITIAL_SNAKE_LENGTH, gameState, score, setScore } =
+    useContext(GameContext);
   const boardRef = useRef();
   const [position, setPosition] = useState({
     x: 60,
@@ -22,6 +31,10 @@ export const Board = () => {
 
   const [snake, setSnake] = useState([]);
 
+  const incrememtScore = useCallback(() => {
+    setScore((state) => score + 1);
+  }, [score, setScore]);
+
   useEffect(() => {
     if (gameState.gameStarted) {
       setSnake(Array(INITIAL_SNAKE_LENGTH).fill({ x: 0, y: 30 }));
@@ -31,7 +44,9 @@ export const Board = () => {
 
   return (
     <div ref={boardRef} className={styles.board}>
-      <BoardContext.Provider value={{ position, food, setFood }}>
+      <BoardContext.Provider
+        value={{ position, food, setFood, incrememtScore }}
+      >
         <Food />
       </BoardContext.Provider>
       <BoardContext.Provider
@@ -45,6 +60,7 @@ export const Board = () => {
         }}
       >
         <Snake />
+        <Dialog />
       </BoardContext.Provider>
     </div>
   );

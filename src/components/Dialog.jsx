@@ -1,6 +1,5 @@
 import { GameContext } from "./Game";
 import { useContext } from "react";
-import { BoardContext } from "./Board";
 import styles from "./Dialog.module.css";
 
 export default function Dialog() {
@@ -14,8 +13,6 @@ export default function Dialog() {
     setScore,
     score,
   } = useContext(GameContext);
-
-  const { board } = useContext(BoardContext);
 
   return (
     <>

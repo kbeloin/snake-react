@@ -22,6 +22,10 @@
   animation: fade-in-and-slide-down 300ms ease-in-out forwards;
   place-self: center;
   z-index: 5;
+  position: absolute;
+  top: 30%;
+  max-height: 50vh;
+  overflow: scroll;
 }
 
 .history {

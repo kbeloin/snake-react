@@ -16,7 +16,7 @@ export default function Header() {
             : ""
         }`}</h2>
       )}
-      {!gameState.gameStarted && <h2>Setup</h2>}
+      {!gameState.gameStarted && <h2>Snake Setup</h2>}
 
       <header
         style={{

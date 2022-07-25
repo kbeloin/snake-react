@@ -37,7 +37,7 @@ export default function Game() {
   const [gameState, setGameState] = useState({
     gameOver: false,
     gameWon: false,
-    gameStarted: true,
+    gameStarted: false,
   });
 
   const newGame = ({ attempt, time, gameState }) => {

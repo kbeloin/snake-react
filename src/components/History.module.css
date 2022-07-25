@@ -1,3 +1,29 @@
+.button {
+  --button-height: 30px;
+  --button-width: 30px;
+  display: grid;
+  place-content: center;
+  height: var(--button-height);
+  width: var(--button-width);
+  border-radius: 50%;
+  z-index: 5;
+  background-color: var(--background-color);
+  border: 2px solid black;
+  min-width: unset;
+  padding: 0;
+  margin: 0.5em;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.dialog {
+  animation: fade-in-and-slide-down 300ms ease-in-out forwards;
+  place-self: center;
+  z-index: 5;
+}
+
 .history {
   display: flex;
   flex-direction: column;
@@ -18,12 +44,6 @@
   grid-template-columns: 2fr 1fr 2fr 1fr 2fr;
 }
 
-@media (max-width: 768px) {
-  .history {
-    display: none;
-  }
-}
-
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -41,5 +61,16 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes fade-in-and-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-30%);
   }
 }

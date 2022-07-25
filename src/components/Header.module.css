@@ -1,5 +1,4 @@
 .header {
-  text-align: left;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,9 +6,4 @@
   padding: 0;
   width: 100%;
   max-width: 600px;
-  flex: 1 1 100%;
-}
-
-.title {
-  width: 100%;
 }

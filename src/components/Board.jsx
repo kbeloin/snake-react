@@ -61,8 +61,18 @@ export const Board = () => {
     }
   }, [gameState, INITIAL_SNAKE_LENGTH, BOARD_WIDTH, CELL_SIZE]);
 
+  const screenWidth = window.innerWidth;
+  const boardSize = BOARD_WIDTH + 22;
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        transform: `scale(${
+          boardSize > screenWidth ? screenWidth / boardSize : 1
+        })`,
+      }}
+    >
       {gameState.gameStarted && (
         <div
           ref={boardRef}

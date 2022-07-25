@@ -24,4 +24,12 @@ body {
   width: 100%;
   max-width: min(800px, 100vw);
   justify-content: center;
+  padding: 0 2em;
+}
+
+@media (max-width: 768px) {
+  .App-body {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
 }

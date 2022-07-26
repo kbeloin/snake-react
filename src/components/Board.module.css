@@ -78,6 +78,7 @@
   margin: 0 auto;
   transform: rotate(45deg);
   position: relative;
+  margin-top: -1.75em;
 }
 
 .mobile-controls button {
@@ -138,4 +139,10 @@
   width: 75px;
   height: 75px;
   pointer-events: none;
+}
+
+@media (min-width: 600px) {
+  .mobile-controls {
+    margin-top: 0;
+  }
 }

@@ -38,8 +38,10 @@ export const Board = () => {
   const [snake, setSnake] = useState([]);
 
   const incrememtScore = useCallback(() => {
-    setScore((state) => score + 1);
-  }, [score, setScore]);
+    if (!gameState.gameOver) {
+      setScore((state) => score + 1);
+    }
+  }, [score, setScore, gameState]);
 
   useEffect(() => {
     if (gameState.gameStarted) {
@@ -83,7 +85,7 @@ export const Board = () => {
           }}
         >
           <BoardContext.Provider
-            value={{ position, food, setFood, incrememtScore }}
+            value={{ position, food, setFood, incrememtScore, gameState }}
           >
             <Food />
           </BoardContext.Provider>

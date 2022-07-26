@@ -8,12 +8,12 @@ export default function Header() {
   return (
     <div className={styles.header}>
       {gameState.gameStarted && (
-        <h2>{`Attempt ${i + 1}${
+        <h2>{`${
           gameState.gameStarted && gameState.gameWon
-            ? ": Win"
+            ? "Win"
             : gameState.gameStarted && gameState.gameOver
-            ? ": Game Over"
-            : ""
+            ? "Game Over"
+            : `Attempt ${i + 1}`
         }`}</h2>
       )}
       {!gameState.gameStarted && <h2>Snake Setup</h2>}

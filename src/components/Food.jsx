@@ -3,17 +3,23 @@ import { useContext, useEffect } from "react";
 import styles from "./Food.module.css";
 
 export default function Food() {
-  const { position, food, setFood, incrememtScore } = useContext(BoardContext);
+  const { position, food, setFood, incrememtScore, gameState } =
+    useContext(BoardContext);
 
   useEffect(() => {
-    if (position.x === food.x && position.y === food.y && !food.collected) {
+    if (
+      position.x === food.x &&
+      position.y === food.y &&
+      !food.collected &&
+      !gameState.gameOver
+    ) {
       setFood((state) => ({
         ...state,
         collected: true,
       }));
       incrememtScore();
     }
-  }, [position, food, setFood, incrememtScore]);
+  }, [position, food, setFood, incrememtScore, gameState]);
 
   return (
     <div

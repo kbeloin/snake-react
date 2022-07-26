@@ -21,7 +21,7 @@ export default function Timer({ time, setTime }) {
   return (
     <div className={styles.timer}>{
       // time in 00:00 format
-      `Time: ${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`
+      `${Math.floor(time / 60)}:${time % 60 < 10 ? "0" : ""}${time % 60}`
     }</div>
   );
 }

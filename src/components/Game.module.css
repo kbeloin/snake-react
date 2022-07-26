@@ -50,6 +50,12 @@
   place-content: center;
   align-items: center;
   position: relative;
+  justify-items: center;
+}
+
+.game-board-controls {
+  max-width: var(--board-height);
+  width: 100%;
 }
 
 .game-board-container > div {

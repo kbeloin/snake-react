@@ -64,7 +64,7 @@
   flex-wrap: nowrap;
 
   margin-top: 0.75vh;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .mobile-controls {

@@ -78,8 +78,6 @@ export default function Game() {
             boardSize > screenWidth
               ? `${boardSize * (screenWidth / boardSize)}px`
               : "100%",
-          // "--scale": screenWidthTarget / (BOARD_WIDTH + CELL_SIZE * 2),
-          // "--yOffset": `-${gameState.gameStarted ? newBoardWidth * 0.2 : 0}px`,
         }}
       >
         <div className={styles["game-board-info"]}>
@@ -138,7 +136,9 @@ export default function Game() {
               SHOW_MOBILE_CONTROLS,
             }}
           >
-            <Setup />
+            <div className={styles["game-board-controls"]}>
+              <Setup />
+            </div>
           </GameContext.Provider>
         </div>
       </div>

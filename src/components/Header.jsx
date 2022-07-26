@@ -16,7 +16,7 @@ export default function Header() {
             : `Attempt ${i + 1}`
         }`}</h2>
       )}
-      {!gameState.gameStarted && <h2>Snake Setup</h2>}
+      {!gameState.gameStarted && <h2>Snake</h2>}
 
       <header
         style={{

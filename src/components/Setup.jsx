@@ -97,7 +97,6 @@ export default function Setup() {
       gameWon: false,
     }));
 
-    newGame({ attempt: i, time: time, gameState });
     setGame((state) => ({
       ...state,
       INITIAL_SNAKE_LENGTH: settings.INITIAL_SNAKE_LENGTH,
@@ -106,6 +105,14 @@ export default function Setup() {
       BOARD_WIDTH: settings.BOARD_WIDTH,
       SHOW_MOBILE_CONTROLS: settings.SHOW_MOBILE_CONTROLS,
     }));
+
+    if (i !== 0) {
+      newGame({
+        attempt: i,
+        time: time,
+        gameState: gameState,
+      });
+    }
   };
 
   const resetGame = (e) => {

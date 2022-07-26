@@ -31,7 +31,7 @@ export default function Game() {
   const [gameHistory, setGameHistory] = useState([]);
   const [time, setTime] = useState(0);
   const [score, setScore] = useState(0);
-  const [showHistory, setShowHistory] = useState(true);
+  const [showHistory, setShowHistory] = useState(false);
   const boardRef = useRef();
 
   const [gameState, setGameState] = useState({
@@ -41,10 +41,12 @@ export default function Game() {
   });
 
   const newGame = ({ attempt, time, gameState }) => {
-    setGameHistory((state) => [
-      ...state,
-      { attempt: attempt + 1, time: time, gameState, score },
-    ]);
+    if (i >= 0) {
+      setGameHistory((state) => [
+        ...state,
+        { attempt: attempt + 1, time: time, gameState, score },
+      ]);
+    }
     setScore(0);
     setTime(0);
     i++;
